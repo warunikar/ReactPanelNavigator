@@ -2,53 +2,25 @@ import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Manage clients and shifts</Text>
-                <Button
-                    title="Go to details"
-                    onPress={() => this.props.navigation.navigate('Details')}
-                />
-            </View>
-        );
-    }
-}
-
-class DetailsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Details Screen</Text>
-                <Button
-                    title="Go to Details... again"
-                    onPress={() => this.props.navigation.push('Details')}
-                />
-                <Button
-                    title="Go to Home"
-                    onPress={() => this.props.navigation.navigate('Home')}
-                />
-                <Button
-                    title="Go back"
-                    onPress={() => this.props.navigation.goBack()}
-                />
-            </View>
-        );
-    }
-}
+import HomePage from "./pages/HomePage";
+import LinkUserPage from "./pages/LinkUserPage";
+import AddNewUserPage from "./pages/AddNewUserPage";
+import localStrings from "./resources/localStrings";
 
 const RootStack = createStackNavigator(
 {
     Home: {
-        screen: HomeScreen,
+        screen: HomePage
     },
-    Details: {
-        screen: DetailsScreen,
+    LinkUser: {
+        screen: LinkUserPage
+    },
+    AddNewUser: {
+        screen: AddNewUserPage
     },
 },
 {
-    initialRouteName: 'Home',
+    initialRouteName: 'Home'
 });
 
 const AppContainer = createAppContainer(RootStack);
