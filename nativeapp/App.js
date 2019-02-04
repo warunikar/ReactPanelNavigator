@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
-import Button from '@material-ui/core/Button';
 
 class HomeScreen extends React.Component {
     render() {
@@ -9,7 +8,7 @@ class HomeScreen extends React.Component {
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Manage clients and shifts</Text>
                 <Button
-                    color="primary"
+                    title="Go to details"
                     onPress={() => this.props.navigation.navigate('Details')}
                 />
             </View>
