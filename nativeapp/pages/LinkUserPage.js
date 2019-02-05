@@ -15,21 +15,32 @@ class LinkUserPage extends React.Component {
 		};
 	};
 
-	prepItems = (itemsList) => (
+	prepareItems = (itemsList) => (
 		itemsList.map((item) => ({key: item}))
 	);
 
+	onAddNewUser = (userName) => {
+		const { usersList } = this.state;
+		const newUsersList = [userName].concat(usersList);
+		this.setState({
+			usersList: newUsersList
+		});
+	}
+
     render() {
+    console.log(this.prepareItems(this.state.usersList));
         return (
             <View style={{ display: "flex", alignItems: 'center', justifyContent: 'center' }}>
                 <Text>{localStrings.listOfUsers}</Text>
                 <FlatList
-                  data={this.prepItems(this.state.usersList)}
+                  data={this.prepareItems(this.state.usersList)}
                   renderItem={({item}) => <Text>{item.key}</Text>}
                 />
                 <Button
                     title={localStrings.addNewUserTitle}
-                    onPress={() => this.props.navigation.push('AddNewUser')}
+                    onPress={() => this.props.navigation.push('AddNewUser', {
+                        onAddNewUser: this.onAddNewUser
+                    })}
                 />
                 <Button
                     title={localStrings.homePageLinkTitle}
