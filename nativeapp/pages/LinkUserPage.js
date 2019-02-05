@@ -21,7 +21,7 @@ class LinkUserPage extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ display: "flex", alignItems: 'center', justifyContent: 'center' }}>
                 <Text>{localStrings.listOfUsers}</Text>
                 <FlatList
                   data={this.prepItems(this.state.usersList)}
