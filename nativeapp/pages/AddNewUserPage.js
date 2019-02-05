@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, View, Text, TextInput } from 'react-native';
 import localStrings from "../resources/localStrings";
+import { container, title } from "../styles/PageStyles";
 
 class AddNewUserPage extends React.Component {
 	constructor(props) {
@@ -22,13 +23,9 @@ class AddNewUserPage extends React.Component {
     render() {
 
         return (
-            <View style={{
-	             display: "flex",
-	             alignItems: 'center',
-	             paddingTop: 100
-	        }}>
+            <View style={container}>
                 <Text
-                    style={{paddingBottom: 20, fontSize: 20}}
+                    style={title}
                 >
                     {localStrings.addNewUserTitle}
                 </Text>

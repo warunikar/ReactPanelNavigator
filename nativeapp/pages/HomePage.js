@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import localStrings from "../resources/localStrings";
+import { container, title } from "../styles/PageStyles";
 
 class HomePage extends React.Component {
 	constructor(props) {
@@ -19,8 +20,8 @@ class HomePage extends React.Component {
     render() {
         const { selectedUser } = this.state;
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text style={{paddingBottom: 20, fontSize: 20}}>{localStrings.homeTitle}</Text>
+            <View style={container}>
+                <Text style={title}>{localStrings.homeTitle}</Text>
                 { selectedUser &&
                     <View style={{ display: "flex", alignItems: 'center', justifyContent: 'center' }}>
 	                    <Text style={{ paddingBottom: 10, fontSize: 16 }}>{localStrings.selectedUserTitle}</Text>
