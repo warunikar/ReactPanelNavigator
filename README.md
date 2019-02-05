@@ -2,7 +2,7 @@
 
 Basic panel navigation in React-Native.
 
-##How to run
+## How to run
 After cloning the repo, open a terminal and run the following commands:
 - cd nativeapp
 - npm install
