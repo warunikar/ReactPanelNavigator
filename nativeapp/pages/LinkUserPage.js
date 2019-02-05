@@ -27,25 +27,49 @@ class LinkUserPage extends React.Component {
 		});
 	}
 
+	onSelectUser = (userName) => {
+		const { navigation } = this.props;
+        const onSelectUserCallback = navigation.getParam('onSelectUser');
+        onSelectUserCallback(userName);
+        navigation.navigate('Home');
+	}
+
     render() {
-    console.log(this.prepareItems(this.state.usersList));
         return (
-            <View style={{ display: "flex", alignItems: 'center', justifyContent: 'center' }}>
-                <Text>{localStrings.listOfUsers}</Text>
+            <View style={{
+                display: "flex",
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingTop: 200
+            }}>
+                <Text
+                    style={{paddingBottom: 20, fontSize: 20}}
+                >
+                    {localStrings.listOfUsers}
+                </Text>
                 <FlatList
                   data={this.prepareItems(this.state.usersList)}
-                  renderItem={({item}) => <Text>{item.key}</Text>}
+                  renderItem={({item}) =>
+                    <Text
+                        onPress={() => this.onSelectUser(item.key)}
+                        style={{paddingBottom: 5}}
+                    >
+                        {item.key}
+                    </Text>
+                  }
                 />
-                <Button
-                    title={localStrings.addNewUserTitle}
-                    onPress={() => this.props.navigation.push('AddNewUser', {
-                        onAddNewUser: this.onAddNewUser
-                    })}
-                />
-                <Button
-                    title={localStrings.homePageLinkTitle}
-                    onPress={() => this.props.navigation.navigate('Home')}
-                />
+                <View style={{paddingTop: 100}}>
+	                <Button
+	                    title={localStrings.addNewUserTitle}
+	                    onPress={() => this.props.navigation.push('AddNewUser', {
+	                        onAddNewUser: this.onAddNewUser
+	                    })}
+	                />
+	                <Button
+	                    title={localStrings.homePageLinkTitle}
+	                    onPress={() => this.props.navigation.navigate('Home')}
+	                />
+                </View>
             </View>
         );
     }

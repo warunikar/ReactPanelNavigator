@@ -4,7 +4,8 @@ const localStrings = {
 	homeTitle: "Manage clients and shifts",
 	homePageLinkTitle: "Home Page",
 	addNewUserTitle: "Add a new user",
-	addUserButtonTitle: "Add user"
+	addUserButtonTitle: "Add user",
+	selectedUserTitle: "You have selected:"
 };
 
 export default localStrings;
